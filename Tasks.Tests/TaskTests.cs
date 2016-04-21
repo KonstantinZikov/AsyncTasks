@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Task;
+using Task1;
 using Tasks.Tests.Extentions;
 
 namespace Tasks.Tests
@@ -22,7 +22,7 @@ namespace Tasks.Tests
         [TestCategory("GetUrlContent")]
         public void GetUrlContent_Should_Return_Content()
         {
-            TestContent(Task.Tasks.GetUrlContent);
+            TestContent(Task1.Tasks.GetUrlContent);
         }
 
         [TestMethod]
@@ -54,8 +54,8 @@ namespace Tasks.Tests
                     GetTestUris().GetUrlContentAsync(expectedConcurrentStreams).ToArray();
 
                     Assert.IsTrue(UnitTestsTraceListener.MaxConcurrentStreamsCount <= expectedConcurrentStreams,
-                                  string.Format("Max concurrent streams should be less then {expectedConcurrentStreams}," +
-                                                " actual : {UnitTestsTraceListener.MaxConcurrentStreamsCount}"));
+                                  string.Format($"Max concurrent streams should be less then {expectedConcurrentStreams}," +
+                                                $" actual : {UnitTestsTraceListener.MaxConcurrentStreamsCount}"));
 
                     Assert.IsTrue(UnitTestsTraceListener.MaxConcurrentStreamsCount > 1,
                                    string.Format($"Max concurrent streams should be more then 1, " +
